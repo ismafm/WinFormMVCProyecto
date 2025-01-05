@@ -25,6 +25,15 @@ namespace WinFormMVCProyecto.Presentador
             this.vista.GuardarTareaClick += OnGuardarTareaClick;
             CargarTareas();
         }
+        private TareaDataGridModel[] GetVisualTareaArray(TareaModel[] tareaArray)
+        {
+            return tareaArray.Select(t => new TareaDataGridModel()
+            {
+                NombreTarea = t.NombreTarea,
+                Completada = t.Completada ? "Sí" : "No",
+                FechaCreacion = t.FechaCreacion.ToString("dd/MM/yyyy"),
+            }).ToArray();
+        }
         public void OnGuardarTareaClick(object sender, EventArgs e)
         {
             string nombreTarea = this.vista.NombreTarea;
@@ -35,7 +44,7 @@ namespace WinFormMVCProyecto.Presentador
                 TareaModel nuevaTarea = new TareaModel(nombreTarea, completada, fechaTarea);
 
                 datos.AnyadirTarea(nuevaTarea);
-                vista.MostrarTareas(datos.getTarea());
+                vista.MostrarTareasDataGrid(GetVisualTareaArray(datos.getTareaObject()));
 
             }
 
@@ -43,7 +52,7 @@ namespace WinFormMVCProyecto.Presentador
 
         public void CargarTareas()
         {
-            vista.MostrarTareas(datos.getTarea());
+            vista.MostrarTareasDataGrid(GetVisualTareaArray(datos.getTareaObject()));
         }
 
     }

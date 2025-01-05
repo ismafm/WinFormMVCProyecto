@@ -33,7 +33,8 @@
             tareaCompletada = new CheckBox();
             TareaFechaCreacion = new DateTimePicker();
             label1 = new Label();
-            listaTareas = new ListBox();
+            listaTareas = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)listaTareas).BeginInit();
             SuspendLayout();
             // 
             // tareaNombre
@@ -80,11 +81,13 @@
             // 
             // listaTareas
             // 
-            listaTareas.FormattingEnabled = true;
-            listaTareas.Location = new Point(12, 243);
+            listaTareas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            listaTareas.Location = new Point(23, 250);
             listaTareas.Name = "listaTareas";
-            listaTareas.Size = new Size(776, 184);
+            listaTareas.RowHeadersWidth = 51;
+            listaTareas.Size = new Size(747, 188);
             listaTareas.TabIndex = 5;
+            listaTareas.CellContentClick += dataGridView1_CellContentClick;
             // 
             // TareaForm
             // 
@@ -100,6 +103,7 @@
             Name = "TareaForm";
             Text = "TareaForm";
             Load += TareaForm_Load;
+            ((System.ComponentModel.ISupportInitialize)listaTareas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -111,6 +115,6 @@
         private CheckBox tareaCompletada;
         private DateTimePicker TareaFechaCreacion;
         private Label label1;
-        private ListBox listaTareas;
+        private DataGridView listaTareas;
     }
 }

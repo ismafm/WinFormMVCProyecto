@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace WinFormMVCProyecto.Modelo
 {
-    internal class TareaModel
+    public class TareaModel
     {
-
+        //[DisplayName("Nombre")]
         public string NombreTarea { get; set; }
         public bool Completada { get; set; }
         public DateTime FechaCreacion { get; set; }

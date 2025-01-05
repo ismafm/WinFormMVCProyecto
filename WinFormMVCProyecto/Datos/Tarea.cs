@@ -21,5 +21,9 @@ namespace WinFormMVCProyecto.Datos
                 .Select(tarea => $"Nombre: {tarea.NombreTarea}; " +
                 $"Completada: {(tarea.Completada ? "Sí" : "No")}, Fecha creación: {tarea.FechaCreacion.ToString("dd/MM/yyyy")}").ToArray();
         }
+        public TareaModel[] getTareaObject()
+        {
+            return this.ListaTareas.ToArray();
+        }
     }
 }
